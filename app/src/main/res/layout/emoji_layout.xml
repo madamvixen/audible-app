@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SlidingPaneLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/full_emoji_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000000">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/close"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:src="@drawable/closebtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#000000"
+                android:layout_alignParentEnd="true"
+                android:padding="10dp"
+                android:layout_margin="4dp"/>
+        </RelativeLayout>
+
+        <GridView
+            android:id="@+id/emoji_grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="4"
+            android:columnWidth="40dp"
+            android:verticalSpacing="20dp"
+            android:horizontalSpacing="20dp"
+            android:layout_below="@+id/close"
+            />
+
+    </RelativeLayout>
+</android.support.v4.widget.SlidingPaneLayout>
