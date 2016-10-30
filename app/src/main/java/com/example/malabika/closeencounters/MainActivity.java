@@ -1,5 +1,6 @@
 package com.example.malabika.closeencounters;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -17,6 +18,8 @@ import okhttp3.Request;
 public class MainActivity extends AppCompatActivity {
    public  static String EMOJI_FRAGMENT = "EMOJI_FRAGMENT";
     public static String base_url = "https://bemyapp.herokuapp.com/";
+    public static String client_id = "amzn1.application-oa2-client.c48424fdaeba4e0f9504ae9293298574";
+    public static String api_url = "";
 
     @Bind(R.id.background_image)
     RelativeLayout backgroundImage;
@@ -43,8 +46,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 Toast.makeText(getApplicationContext(), "OPENING SLIDER", Toast.LENGTH_SHORT).show();
-                getSupportFragmentManager().beginTransaction().add(R.id.background_image,
-                        EmojiSliderActivity.newInstance(),EMOJI_FRAGMENT).commit();
+                startActivity(new Intent(getApplicationContext(), EmojiSliderActivity.class));
+
+               // (activity).overridePendingTransition(R.anim.slide_in_dialog, R.anim.fade_out_activity_transition);
                 return false;
             }
         });

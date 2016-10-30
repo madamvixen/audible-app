@@ -2,6 +2,7 @@ package com.example.malabika.closeencounters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,8 +30,9 @@ public class EmojiAdapter extends ArrayAdapter {
         this.data = data;
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         View row = convertView;
         ViewHolder holder = null;
 
@@ -38,13 +40,13 @@ public class EmojiAdapter extends ArrayAdapter {
             LayoutInflater inflater = ((Activity) context).getLayoutInflater();
             row = inflater.inflate(layoutResourceId, parent, false);
             holder = new ViewHolder();
-            holder.image = (ImageView) row.findViewById(R.id.image);
+            holder.image = (ImageView) row.findViewById(R.id.emoji);
             row.setTag(holder);
         } else {
             holder = (ViewHolder) row.getTag();
         }
 
-        int itemId = (Integer)data.get(position);
+        Integer itemId = (Integer)data.get(position);
         holder.image.setImageResource(itemId);
         return row;
     }
